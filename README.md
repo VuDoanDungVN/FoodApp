@@ -30,10 +30,9 @@ React Native: Framework để phát triển ứng dụng di động.
 Firebase: Dịch vụ backend cho xác thực người dùng và lưu trữ dữ liệu.
 Redux: Quản lý trạng thái ứng dụng.
 Liên hệ
-Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua email: contact@foodapp.com
-
+Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua email: vudungit92@gmail.com
 Tạo bởi
-Vũ Doãn Dũng
+**Vũ Doãn Dũng**
 
 ### Hướng dẫn sử dụng
 - Thay thế các giá trị như `username`, `Họ và tên của bạn`, và các chi tiết khác để phù hợp với ứng dụng của bạn.
