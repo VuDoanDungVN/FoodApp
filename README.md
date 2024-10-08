@@ -4,7 +4,7 @@
 FoodApp là một ứng dụng di động giúp người dùng khám phá và thưởng thức các món ăn đa dạng từ khắp nơi trên thế giới. Ứng dụng cung cấp một danh sách các món ăn, công thức nấu ăn, và thông tin về các nhà hàng gần bạn. Với giao diện thân thiện và dễ sử dụng, FoodApp sẽ giúp bạn tìm kiếm và đặt món ăn một cách nhanh chóng và tiện lợi.
 
 ## Giao diện của Food App :
-![Food App]([https://drive.google.com/file/d/1Qfa89NbOkxFlrXo7CdkRSi-RHGfuUAsy/view?usp=sharing](https://codingdung.com/wp-content/uploads/2024/10/FoodApp.png))
+![Food App](./assets/FoodApp.png)
 
 ## Tính năng
 - **Khám phá món ăn**: Duyệt qua các món ăn phổ biến và tìm kiếm theo loại ẩm thực.
