@@ -8,7 +8,7 @@ const SplashScreen = ({ navigation }: any) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace("Login"); // Chuyển sang trang Login sau 5 giây
-    }, 5000);
+    }, 1000);
 
     return () => clearTimeout(timer); // Clear timer khi component bị unmount
   }, [navigation]);
