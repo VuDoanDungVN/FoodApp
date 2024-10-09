@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonContainer: {
-    backgroundColor: "#5D50AD", // Màu nền cho nút
+    backgroundColor: "#c02727", // Màu nền cho nút
     padding: 15,
     borderRadius: 8,
     alignItems: "center",

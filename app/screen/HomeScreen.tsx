@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Dimensions,
+  ImageBackground,
 } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Carousel, { Pagination } from "react-native-snap-carousel";
@@ -78,6 +79,16 @@ const Categories = [
   { name: "Pizza", image: require("../../assets/icon/hambager.png") },
 ];
 
+const voucherData = [
+  { image: require("../../assets/voucher/voucher1.jpg") },
+  { image: require("../../assets/voucher/voucher2.jpg") },
+  { image: require("../../assets/voucher/voucher3.jpg") },
+  { image: require("../../assets/voucher/voucher4.jpg") },
+  { image: require("../../assets/voucher/voucher5.jpg") },
+];
+
+const foodVoucher = [{ image: require("../../assets/voucher/voucher6.png") }];
+
 const _renderItem = ({ item }: any, navigation: any) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Detail")}>
@@ -90,7 +101,7 @@ const _renderItem = ({ item }: any, navigation: any) => {
           </Text>
           <View style={styles.popularItemDetails}>
             <View style={styles.popularItemRating}>
-              <AntDesign name="star" size={24} color="#C02727" />
+              <AntDesign name="star" size={24} color="#c02727" />
               <Text style={styles.popularItemRatingText}>{item.rating}</Text>
               <Text style={styles.popularItemRatingText}>
                 ({item.reviews}+)
@@ -101,9 +112,7 @@ const _renderItem = ({ item }: any, navigation: any) => {
             <View>
               <Text style={styles.popularItemPrice}>{item.price}</Text>
             </View>
-            <Text style={styles.popularItemIcon}>
-              <AntDesign name="heart" size={24} color="#C02727" />
-            </Text>
+            <Text style={styles.popularItemIcon}>Detail</Text>
           </View>
         </View>
       </View>
@@ -113,13 +122,19 @@ const _renderItem = ({ item }: any, navigation: any) => {
 
 const HomeScreen = ({ navigation }: any) => {
   const [activeSlide, setActiveSlide] = useState(0);
-
   return (
     <View style={styles.container}>
       <ScrollView>
         <View>
+          {foodVoucher.map((voucher, index) => (
+            <View style={{ paddingHorizontal: 10 }}>
+              <TouchableOpacity onPress={() => navigation.navigate("Detail")}>
+                <Image source={voucher.image} style={styles.voucherImage} />
+              </TouchableOpacity>
+            </View>
+          ))}
           <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Categories</Text>
+            <Text style={styles.titleText}>Experience the great food !!</Text>
           </View>
 
           <View style={styles.scrollContainer}>
@@ -165,6 +180,27 @@ const HomeScreen = ({ navigation }: any) => {
 
           <View>
             <View style={styles.titleContainer}>
+              <Text style={styles.titleText}>Voucher</Text>
+            </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {voucherData.map((voucher, index) => (
+                <TouchableOpacity key={index}>
+                  <Image
+                    source={voucher.image}
+                    style={{
+                      width: 100,
+                      height: 100,
+                      borderRadius: 10,
+                      marginHorizontal: 10,
+                    }}
+                  />
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+
+          <View>
+            <View style={styles.titleContainer}>
               <Text style={styles.titleText}>Top Food</Text>
             </View>
             {/* Top Food */}
@@ -184,7 +220,7 @@ const HomeScreen = ({ navigation }: any) => {
                     </Text>
                     <View style={styles.popularItemDetails}>
                       <View style={styles.popularItemRating}>
-                        <AntDesign name="star" size={24} color="#C02727" />
+                        <AntDesign name="star" size={24} color="#c02727" />
                         <Text style={styles.popularItemRatingText}>
                           {item.rating}
                         </Text>
@@ -199,9 +235,7 @@ const HomeScreen = ({ navigation }: any) => {
                           {item.price}
                         </Text>
                       </View>
-                      <Text style={styles.popularItemIcon}>
-                        <AntDesign name="heart" size={24} color="#C02727" />
-                      </Text>
+                      <Text style={styles.popularItemIcon}>Detail</Text>
                     </View>
                   </View>
                 </View>
@@ -216,9 +250,13 @@ const HomeScreen = ({ navigation }: any) => {
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
-    backgroundColor: "#FAFAFA",
+    backgroundColor: "#fff",
   },
   scrollContainer: {
     flexDirection: "row",
@@ -228,8 +266,9 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     backgroundColor: "#fff",
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
@@ -240,10 +279,25 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.8,
     shadowRadius: 3.84,
     elevation: 5,
     marginBottom: 10,
+  },
+  voucherImage: {
+    width: "100%",
+    height: 200,
+    borderRadius: 10,
+    marginVertical: 10,
+    // Shadow properties
+    shadowColor: "#ccc",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   popularItemContainer: {
     display: "flex",
@@ -252,22 +306,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#fff",
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     // Shadow properties
     shadowColor: "#ccc",
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.6,
     shadowRadius: 3.84,
     elevation: 5, // For Android shadow
   },
   popularItemImage: {
     width: screenWidth / 2 - 20,
     height: 180,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
   },
   popularItemDetails: {
     flexDirection: "row",
@@ -305,10 +357,10 @@ const styles = StyleSheet.create({
   popularItemPrice: {
     fontSize: 20,
     fontWeight: "600",
+    color: "#5D5D5D",
   },
   popularItemIcon: {
     fontSize: 16,
-    color: "#5D5D5D",
   },
   popularItemRating: {
     flexDirection: "row",
@@ -333,7 +385,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: "#C02727",
+    backgroundColor: "#c02727",
   },
   paginationInactiveDot: {
     backgroundColor: "#ccc",
@@ -349,7 +401,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     gap: 10,
     alignItems: "center",
-    height: 150,
+    height: 130,
     padding: 10,
     margin: 10,
     borderRadius: 10,
@@ -359,7 +411,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.6,
     shadowRadius: 3.84,
     elevation: 5, // For Android shadow
   },
@@ -368,7 +420,19 @@ const styles = StyleSheet.create({
     width: "60%",
     justifyContent: "center",
   },
-  topFoodItemImage: { width: 130, height: 130, borderRadius: 10 },
+  topFoodItemImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 10, // Shadow properties
+    shadowColor: "#ccc",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.8,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
 });
 
 export default HomeScreen;

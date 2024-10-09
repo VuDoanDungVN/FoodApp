@@ -12,6 +12,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase"; // Import Firebase config
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 type RootStackParamList = {
   Login: undefined;
@@ -92,6 +93,60 @@ const LoginScreen = ({ navigation }: Props) => {
             <Text>Sign Up</Text>
           </View>
         </TouchableOpacity>
+        <View
+          style={{
+            backgroundColor: "#fff",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            alignItems: "center",
+            alignContent: "center",
+            padding: 10,
+            marginTop: 20,
+            borderRadius: 8,
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignContent: "center",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            <MaterialIcons name="facebook" size={30} color="#3b5998" />
+            <Text>Continue with Facebook</Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            backgroundColor: "#fff",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+            padding: 10,
+            marginTop: 10,
+            borderRadius: 8,
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+              alignItems: "center",
+              gap: 10,
+            }}
+          >
+            <AntDesign name="google" size={30} color="#c02727" />
+            <Text>Continue with Google</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.errorContainer}>
           {/* Hiển thị lỗi nếu có */}
           {errorMessage ? (
@@ -133,7 +188,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   buttonContainer: {
-    backgroundColor: "#5D50AD",
+    backgroundColor: "#c02727",
     padding: 15,
     borderRadius: 8,
     alignItems: "center",
